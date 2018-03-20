@@ -10,6 +10,11 @@ function getRequestOptions(endpoint, fixture, baseUrl) {
   reqOpts.url = `${baseUrl}${fixture.url}`;
   reqOpts.headers['Content-type'] = contentType;
 
+  // support for request promise
+  if (fixture.resolveWithFullResponse) {
+    reqOpts.resolveWithFullResponse = fixture.resolveWithFullResponse
+  }
+
   (endpoint.parameters || []).forEach((param) => {
     var value = fixture.request[param.name];
 

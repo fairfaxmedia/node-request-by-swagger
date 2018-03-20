@@ -28,6 +28,8 @@ const options = getRequestOptions(schema['/pet'].post, {
             name: 'bob'
         }
     },
+    // optional to provide a support for request promise
+    resolveWithFullResponse: true
 });
 
 ```
