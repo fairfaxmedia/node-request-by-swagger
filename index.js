@@ -15,6 +15,10 @@ function getRequestOptions(endpoint, fixture, baseUrl) {
     reqOpts.resolveWithFullResponse = fixture.resolveWithFullResponse
   }
 
+  if (fixture.timeout) {
+    reqOpts.timeout = fixture.timeout
+  }
+
   (endpoint.parameters || []).forEach((param) => {
     var value = fixture.request[param.name];
 
